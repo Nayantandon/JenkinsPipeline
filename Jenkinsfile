@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+  agent {
+        docker {
+            image 'python'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
     stages {
         stage('Clean Reports') {
             steps {
