@@ -12,8 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install glibc
 RUN pip install binutils
 RUN pip install pyinstaller
-RUN sudo apt-get install binutils
-RUN sudo apt-get install glibc
+RUN  apt-get install binutils
+RUN  apt-get install glibc
 
 
 # Run pyinstaller to create a standalone executable
