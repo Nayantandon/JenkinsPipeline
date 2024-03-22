@@ -16,7 +16,8 @@ pipeline {
                 // sh 'python3 -m venv env'
                //  sh 'source env/bin/activate'
               //   sh 'pip install requests'
-                 sh 'pip install -r requirements.txt'
+                 sh 'pip install --use-pep517 xmlrunner'
+                 sh 'pip install Flask'
                  sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
             }
