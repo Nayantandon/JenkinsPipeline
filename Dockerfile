@@ -14,6 +14,8 @@ RUN pip install binutils
 RUN pip install pyinstaller
 RUN apt-get update
 RUN  apt-get -y install binutils
+RUN chmod +x app.py
+RUN cd /usr/src/app
 
 
 # Run pyinstaller to create a standalone executable
@@ -26,4 +28,5 @@ EXPOSE 5000
 ENV NAME World
 
 # Run your application when the container launches
-CMD ["python app.py"]
+//CMD ["python app.py"]
+CMD ["/usr/bin/python", "app.py"]
