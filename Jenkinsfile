@@ -22,7 +22,7 @@ pipeline {
                  //sh 'pip install --use-pep517 xmlrunner'
                 // sh 'pip install --use-pep517 Flask'
                  sh 'pyinstaller --onefile app.py'
-                 sh 'python app.py'
+                 sh 'python3 app.py'
                 echo '********* Build Stage Finished **********'
             }
         }
