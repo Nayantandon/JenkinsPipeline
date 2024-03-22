@@ -12,6 +12,8 @@ pipeline {
         stage('Build Stage') {
             steps {
                 echo '********* Build Stage Started **********'
+                sh 'python3 -m venv venv'
+                sh '.\\venv\\Scripts\\activate'
                 sh 'pip install -r requirements.txt'
                 sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
