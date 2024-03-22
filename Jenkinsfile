@@ -38,48 +38,22 @@ pipeline {
                 }
             }  
         }
+        stage('Inject Docker Image into deployment.yaml') {
+            steps {
+                script {
+                    // Define the path to your deployment.yaml file
+                    def deploymentYamlFile = "deployment.yaml"
+
+                    // Use sed to replace placeholder with DOCKER_IMAGE value
+                    sh "sed -i 's|<your-docker-image>|${DOCKER_IMAGE}|g' ${deploymentYamlFile}"
+                }
+            }
+        }
         
         stage('Deploy Stage') {
             steps {
                 script {
-                    def deployYaml = """
-                        apiVersion: apps/v1
-                        kind: Deployment
-                        metadata:
-                          name: myapp
-                          labels:
-                            app: myapp
-                        spec:
-                          replicas: 3
-                          selector:
-                            matchLabels:
-                              app: myapp
-                          template:
-                            metadata:
-                              labels:
-                                app: myapp
-                            spec:
-                              containers:
-                              - name: myapp
-                                image: ${DOCKER_IMAGE}
-                                ports:
-                                - containerPort: 8080  # Application listens on port 8080 within the container
-                        ---
-                        apiVersion: v1
-                        kind: Service
-                        metadata:
-                          name: myapp
-                          labels:
-                            app: myapp
-                        spec:
-                          ports:
-                          - port: 8081  # Expose port 8081 on the host
-                            targetPort: 8080
-                          selector:
-                            app: myapp
-                    """
-                    writeFile file: 'deploy.yaml', text: deployYaml
-                    sh "kubectl apply -f deploy.yaml"
+                     sh "kubectl apply -f deploy.yaml"
                 }
             }
         }
