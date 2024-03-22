@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+                DOCKER_IMAGE = "nayandockerrepos/jenkinspipeline:${BUILD_NUMBER}"
+            }
     stages {
         stage('Clean Reports') {
             steps {
@@ -24,9 +27,7 @@ pipeline {
         }
         
         stage('Docker image creation and push') {
-            environment {
-                DOCKER_IMAGE = "nayandockerrepos/jenkinspipeline:${BUILD_NUMBER}"
-            }
+            
             steps {
                 script {
                     sh 'docker build -t ${DOCKER_IMAGE} .'
