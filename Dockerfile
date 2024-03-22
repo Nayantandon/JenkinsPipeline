@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install glibc
 RUN pip install binutils
 RUN pip install pyinstaller
+RUN apt-get install binutils
 
 # Run pyinstaller to create a standalone executable
 RUN pyinstaller --onefile app.py
