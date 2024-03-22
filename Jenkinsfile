@@ -4,7 +4,7 @@ pipeline {
         stage('Clean Reports') {
             steps {
                 echo '********* Cleaning Workspace Stage Started **********'
-                bat 'rmdir /s /q test-reports'
+                
                 echo '********* Cleaning Workspace Stage Finished **********'
             }
         }
@@ -12,8 +12,8 @@ pipeline {
         stage('Build Stage') {
             steps {
                 echo '********* Build Stage Started **********'
-                bat 'pip install -r requirements.txt'
-                bat 'pyinstaller --onefile app.py'
+                sh 'pip install -r requirements.txt'
+                sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
             }
         }
