@@ -14,7 +14,6 @@ RUN pip install binutils
 RUN pip install pyinstaller
 RUN apt-get update
 RUN  apt-get -y install binutils
-RUN  apt-get -y install glibc
 
 
 # Run pyinstaller to create a standalone executable
