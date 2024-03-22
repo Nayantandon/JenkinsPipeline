@@ -1,5 +1,4 @@
 pipeline {
-    
     stages {
         stage('Clean Reports') {
             steps {
