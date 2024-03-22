@@ -18,7 +18,7 @@ pipeline {
                 // sh 'python3 -m venv env'
                //  sh 'source env/bin/activate'
               //   sh 'pip install requests'
-                 sh 'pipx install -r requirements.txt'
+                 sh 'pip install -r requirements.txt'
                  sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
             }
