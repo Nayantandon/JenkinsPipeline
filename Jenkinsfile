@@ -17,7 +17,7 @@ pipeline {
                //  sh 'source env/bin/activate'
               //   sh 'pip install requests'
                  sh 'pip install --use-pep517 xmlrunner'
-                 sh 'pip install Flask'
+                 sh 'pip install --use-pep517 Flask'
                  sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
             }
