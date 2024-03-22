@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install glibc
 RUN pip install binutils
 RUN pip install pyinstaller
+RUN apt-get update
 RUN  apt-get install binutils
 RUN  apt-get install glibc
 
