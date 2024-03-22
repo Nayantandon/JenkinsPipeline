@@ -20,7 +20,7 @@ RUN  apt-get -y install binutils
 RUN pyinstaller --onefile app.py
 
 # Expose the port on which your application will run
-EXPOSE 8080
+EXPOSE 5000
 
 # Define environment variable
 ENV NAME World
