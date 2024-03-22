@@ -18,7 +18,6 @@ RUN  apt-get -y install binutils
 
 # Run pyinstaller to create a standalone executable
 RUN pyinstaller --onefile app.py
-RUN python app.py
 
 # Expose the port on which your application will run
 EXPOSE 5000
@@ -27,4 +26,4 @@ EXPOSE 5000
 ENV NAME World
 
 # Run your application when the container launches
-CMD ["./dist/app"]
+CMD ["python app.py"]
