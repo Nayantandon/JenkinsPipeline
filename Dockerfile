@@ -9,6 +9,7 @@ COPY . .
 
 # Install any needed dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install pyinstaller
 
 # Run pyinstaller to create a standalone executable
 RUN pyinstaller --onefile app.py
