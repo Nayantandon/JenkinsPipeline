@@ -22,8 +22,8 @@ pipeline {
                  //sh 'pip install --use-pep517 xmlrunner'
                 // sh 'pip install --use-pep517 Flask'
                  sh 'pyinstaller --onefile app.py'
-                 sh 'cd /home/nayan4placed2021/env/env/bin'
-                 sh 'python app.py'
+                // sh 'cd /home/nayan4placed2021/env/env/bin'
+                // sh 'python app.py'
                 echo '********* Build Stage Finished **********'
             }
         }
