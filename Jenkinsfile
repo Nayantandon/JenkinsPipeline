@@ -53,7 +53,7 @@ pipeline {
         stage('Deploy Stage') {
             steps {
                 script {
-                     sh "kubectl apply -f deploy.yaml"
+                     sh "docker run -p 8081:8080 -d ${DOCKER_IMAGE}"
                 }
             }
         }
