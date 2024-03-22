@@ -13,6 +13,9 @@ pipeline {
             steps {
                 echo '********* Build Stage Started **********'
                 // Add steps to build the application here
+                 sh 'python3 -m venv env'
+                 sh 'source env/bin/activate'
+                 sh 'pip install requests'
                  sh 'pip install -r requirements.txt'
                  sh 'pyinstaller --onefile app.py'
                 echo '********* Build Stage Finished **********'
