@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy Stage') {
             steps {
                 script {
-                    def deployYaml = '''
+                    def deployYaml = """
                         apiVersion: apps/v1
                         kind: Deployment
                         metadata:
@@ -76,7 +76,7 @@ pipeline {
                             targetPort: 8080
                           selector:
                             app: myapp
-                    '''
+                    """
                     writeFile file: 'deploy.yaml', text: deployYaml
                     sh "kubectl apply -f deploy.yaml"
                 }
